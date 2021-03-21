@@ -16,3 +16,8 @@
   Очистка старых правил по расписанию:  
     удаление записей из MySQL;   
     очистку редиректов из Redis можно реализовать либо вместе с очисткой MySQL, либо по TTL  
+
+
+## deploy:
+1) copy project: ex. git clone https://github.com/Ivan-SVP/url_shortener.git  
+2) run in terminal: docker-compose up
