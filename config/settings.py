@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'db_shortener',
+        'USER': 'db_user',
+        'PASSWORD': 'db_password',
+        'HOST': 'db',
+        'PORT': '3306',
     }
 }
 
@@ -179,7 +183,7 @@ LOGGING = {
 }
 
 
-REDIS_HOST = 'localhost'
+REDIS_HOST = 'redis'
 REDIS_PORT = '6379'
 BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
@@ -189,7 +193,7 @@ CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/',
+        'LOCATION': 'redis://redis:6379/',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }

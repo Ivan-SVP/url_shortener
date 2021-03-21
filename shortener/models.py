@@ -46,5 +46,3 @@ class URL(models.Model):
                 logger.error(ex_message)
                 return self.save()
             raise IntegrityError(ex_message)
-
-        logger.error('save')
